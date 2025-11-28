@@ -2,10 +2,10 @@ import discord
 from discord.ext import commands
 from threading import Thread
 from flask import Flask
-import os
+import sys, types, os
 TOKEN=os.getenv("TOKEN")
 # ------------------- Flask Keepalive -------------------
-
+sys.modules['audioop'] = types.ModuleType('audioop')
 app = Flask(__name__)
 
 @app.route('/')
