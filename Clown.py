@@ -3,6 +3,28 @@ from discord.ext import commands
 from threading import Thread
 from flask import Flask
 import sys, types, os
+import discord
+
+fake_audioop = types.ModuleType("audioop")
+
+# stub out the functions discord.py tries to call
+def _noop(*args, **kwargs):
+    return None
+
+fake_audioop.mul = _noop
+fake_audioop.add = _noop
+fake_audioop.bias = _noop
+fake_audioop.lin2lin = _noop
+fake_audioop.ratecv = _noop
+fake_audioop.tomono = _noop
+fake_audioop.tostereo = _noop
+fake_audioop.reverse = _noop
+fake_audioop.max = lambda data, width=None: 0
+fake_audioop.avg = lambda data, width=None: 0
+
+sys.modules["audioop"] = fake_audioop
+
+
 TOKEN=os.getenv("TOKEN")
 # ------------------- Flask Keepalive -------------------
 sys.modules['audioop'] = types.ModuleType('audioop')
