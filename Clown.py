@@ -1,9 +1,7 @@
-import discord
-from discord.ext import commands
+
 from threading import Thread
 from flask import Flask
 import sys, types, os
-import discord
 
 fake_audioop = types.ModuleType("audioop")
 
@@ -24,7 +22,8 @@ fake_audioop.avg = lambda data, width=None: 0
 
 sys.modules["audioop"] = fake_audioop
 
-
+import discord
+from discord.ext import commands
 TOKEN=os.getenv("TOKEN")
 # ------------------- Flask Keepalive -------------------
 sys.modules['audioop'] = types.ModuleType('audioop')
