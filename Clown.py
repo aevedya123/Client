@@ -44,7 +44,7 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-TARGET_ID = 598134318807908383
+TARGET_ID = 1329161792936476683
 REACTION = "🤡"
 
 @bot.event
