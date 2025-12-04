@@ -44,8 +44,8 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-TARGET_ID = 1389852840276525137
-REACTION = "🏳️‍🌈"
+TARGET_ID = 1255781402583105609
+REACTION = "🤡"
 
 @bot.event
 async def on_ready():
